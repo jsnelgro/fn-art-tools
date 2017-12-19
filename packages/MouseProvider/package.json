@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "prop-types": "^15.6.0",
-    "raf": "^3.4.0"
+    "raf": "^3.4.0",
+    "@vzy/canvas": "*",
+    "@vzy/utils": "*"
   },
   "publishConfig": {
     "access": "public"

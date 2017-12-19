@@ -39,6 +39,14 @@ export const random = (a, b) => ((b === undefined) ? Math.random() * a : Math.ra
 //     mix, map, normalize, clamp, random,
 //     PI2, HALF_PI, DEG2RAD, RAD2DEG, EPS }
 
+export function throttle (mod) {
+  let count = 0
+  return (fn) => {
+    if (count === 0) { fn() }
+    count = (count + 1) % mod
+  }
+}
+
 export const isNumber = (n) => n === +n
 
 export const timeout = (ms) => {
