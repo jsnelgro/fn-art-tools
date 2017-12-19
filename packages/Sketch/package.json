@@ -1,0 +1,16 @@
+{
+  "name": "@vzy/sketch",
+  "version": "0.0.1",
+  "description": "A component similar to a processing sketch",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "raf": "^3.4.0",
+    "react": "^16.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
