@@ -71,6 +71,8 @@ export const randHsla = (...args) => {
   return `hsla(${h}, ${s}%, ${l}%, ${a})`
 }
 
+export const randHsl = randHsla
+
 export const addV = (v1, v2) => {
   return [v1[0] + v2[0], v1[1] + v2[1]]
 }

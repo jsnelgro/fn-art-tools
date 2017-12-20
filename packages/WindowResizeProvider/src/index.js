@@ -1,5 +1,3 @@
-// TODO: write me
-
 import React, { Component } from 'react'
 
 export function withWindowSize () {
@@ -25,13 +23,4 @@ export function withWindowSize () {
   }
 }
 
-class WindowResizeProvider extends Component {
-
-  render () {
-    const { txt } = this.props
-    return (<div>{txt}</div>)
-  }
-
-}
-
-export default WindowResizeProvider
+export default withWindowSize()

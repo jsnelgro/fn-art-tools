@@ -1,4 +1,3 @@
-
 WindowResizeProvider
 ==========
 
