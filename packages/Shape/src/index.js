@@ -1,3 +1,5 @@
+// TODO: Rewrite. Shape class is all sorts of fucked up...
+
 import React, { Component } from 'react'
 import Proptypes from 'prop-types'
 
@@ -33,13 +35,11 @@ class Shape extends Component {
     const transform = [
       ...transforms,
       `translate(${x}, ${y})`,
-      `skewX(${skew[0]})`,
-      `skewY(${skew[1]})`,
       `rotate(${rot}, ${origin[0]}, ${origin[1]})`,
       `scale(${scale[0]},${scale[1]})`,
     ].join(' ')
     return (<g ref={r => (this.r = r)} transform={transform} {...p}>
-      <path d={path.join(' ')}></path>
+      {path ? <path d={path.join(' ')}></path> : null}
       {children}
     </g>)
   }

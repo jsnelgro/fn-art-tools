@@ -1,3 +1,5 @@
+// TODO: rewrite after rewriting shape class
+
 import React, { Component } from 'react'
 import Proptypes from 'prop-types'
 import Shape from '@vzy/shape'

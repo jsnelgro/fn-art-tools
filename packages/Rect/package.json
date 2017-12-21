@@ -6,12 +6,16 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
+  "dependencies": {
+    "@vzy/shape": "*"
+  },
   "peerDependencies": {
     "react": "^16.2.0"
   },
   "devDependencies": {
     "prop-types": "^15.6.0",
-    "raf": "^3.4.0"
+    "raf": "^3.4.0",
+    "@vzy/canvas": "*"
   },
   "publishConfig": {
     "access": "public"
