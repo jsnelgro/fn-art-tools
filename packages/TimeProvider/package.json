@@ -1,24 +1,23 @@
+
 {
-  "name": "@vzy/windowresizeprovider",
+  "name": "@vzy/timeprovider",
   "version": "0.0.1",
-  "description": "My super awesome WindowResizeProvider component!",
+  "description": "My super awesome TimeProvider component!",
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
   "peerDependencies": {
     "react": "^16.2.0"
   },
+  "dependencies": {
+    "recompose": "^0.26.0"
+  },
   "devDependencies": {
-    "@vzy/canvas": "*",
-    "@vzy/ellipse": "*",
-    "@vzy/utils": "*",
     "prop-types": "^15.6.0",
-    "raf": "^3.4.0"
+    "raf": "^3.4.0",
+    "@vzy/canvas": "*"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "recompose": "^0.26.0"
   }
 }

@@ -9,12 +9,13 @@
     "react": "^16.2.0"
   },
   "dependencies": {
-    "@vzy/shape": "*"
+    "@vzy/shape": "*",
+    "recompose": "^0.26.0"
   },
   "devDependencies": {
+    "@vzy/canvas": "*",
     "prop-types": "^15.6.0",
-    "raf": "^3.4.0",
-    "@vzy/canvas": "*"
+    "raf": "^3.4.0"
   },
   "publishConfig": {
     "access": "public"

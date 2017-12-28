@@ -6,7 +6,9 @@ export const DEG2RAD = Math.PI / 180.0
 export const RAD2DEG = 180.0 / Math.PI
 export const EPS = 10e-6
 
-// Constants
+export const round = (value, decimals) => {
+  return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals)
+}
 
 /*
  * Lineary interpolates between a->b, using n as a weight

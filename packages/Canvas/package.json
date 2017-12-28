@@ -6,11 +6,12 @@
   "module": "src/index.js",
   "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
   "peerDependencies": {
-    "react": "^16.2.0",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
   },
   "dependencies": {
-    "raf": "^3.4.0"
+    "raf": "^3.4.0",
+    "recompose": "^0.26.0"
   },
   "publishConfig": {
     "access": "public"

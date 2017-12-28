@@ -12,5 +12,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "recompose": "^0.26.0"
   }
 }

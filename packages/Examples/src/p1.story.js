@@ -85,7 +85,7 @@ const Story2 = () => {
       return row.map(([x, y]) => {
         return <rect
           key={'' + x + y}
-          fill={_.randHsla(y*10, 50, 60-x*10)}
+          fill={_.randHsla(y*5, 50, 60-x*5)}
           x={x * rGuy.w} y={y * rGuy.h} height={rGuy.h} width={rGuy.w}
         >{''+ x + ' ' + y}</rect>
       })
