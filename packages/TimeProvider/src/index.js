@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import 'raf'
+const raf = window.requestAnimationFrame
 
-export function withTime (parent) {
+export function withTime (delay) {
   return (WrappedComponent) => class TimeProvider extends Component {
     state = {
       t: Date.now(),
@@ -23,19 +24,25 @@ export function withTime (parent) {
           dt: now - prevState.t,
           paused: prevState.paused
         }
-      }, () => !this.state.paused ? window.requestAnimationFrame(this.update) : null)
+      }, () => {
+        if (!this.state.paused) {
+          delay || this.props.delay ?
+            setTimeout(() => raf(this.update), delay) :
+            raf(this.update)
+        }
+      })
     }
 
     componentWillReceiveProps (nxtProps) {
       if (typeof nxtProps.paused === 'boolean') {
         this.setState({paused: nxtProps.paused})
-        window.requestAnimationFrame(this.update)
+        raf(this.update)
       }
     }
 
     componentDidMount () {
       this.setState({paused: this.props.paused})
-      window.requestAnimationFrame(this.update)
+      raf(this.update)
     }
 
     componentWillUnmount () {
