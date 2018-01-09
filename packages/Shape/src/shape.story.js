@@ -4,27 +4,6 @@ import { withKnobs, number, text } from '@storybook/addon-knobs'
 import Canvas from '@vzy/canvas'
 import Shape, { withTransform } from '.'
 
-// import { range } from '@vzy/utils'
-// import readme from './README.md'
-// import { doc } from '/storybook-helpers'
-
-// const Polygon = withTransform()(({sides, radius}) => {
-//   const angle = 360 / sides
-//   const vertexIndices = range(sides)
-//   const offsetDeg = 90 - ((180 - angle) / 2)
-//   const offset = degreesToRadians(offsetDeg)
-//   const points = pts(sides, radius).map(({ r, theta }) => [
-//     cx + r * Math.cos(theta), 
-//     cy + r * Math.sin(theta),
-//   ])
-//   .join(' ')
-//   return <polygon points={points} />
-// })
-
-// const Rect = withTransform()((...props) => {
-//   return <rect height={100} width={100} {...props} />
-// })
-
 storiesOf('viz/Shape', module)
   .addDecorator(withKnobs)
   .add('Basic Shape HOC', () => {
@@ -94,43 +73,29 @@ storiesOf('viz/Shape', module)
     return (
       <Canvas style={{border: '1px solid #4a4a4a', margin: '0 auto', height:'97vh'}}>
         <Shape h={h} w={w} x={x} y={y} rot={rot} origin={origin} skew={skew}>
-          <rect fill={'salmon'} height={100} width={100} />
-          <circle fill={'thistle'} cx={50} cy={50} r={25} />
-          {/* <Shape></Shape> */}
+          <rect fill={'navajowhite'} height={100} width={100} />
+          <Shape name={'eyes'}
+            x={0} y={35}
+            fill={'#4a4a4a'} stroke={'skyblue'} strokeWidth={3}
+          >
+            <Shape skew={-10}><circle cx={30} r={10} cy={0} /></Shape>
+            <Shape skew={10}><circle cx={70} r={10} cy={0} /></Shape>
+          </Shape>
+          <Shape name={'mouth'} x={20} y={60} fill={'salmon'}
+            stroke={'darksalmon'} strokeWidth={3}
+          >
+            <path d="M-2,0 a1,1 0 0,0 65,0 Z" />
+          </Shape>
+          <Shape name={'hat'}
+            y={0}
+            fill={'salmon'} stroke={'indianred'} strokeWidth={2}>
+            <rect x={5} y={-10} height={25} width={90} />
+            <rect height={25} width={100} />
+            <Shape x={12} y={0} skew={-25}>
+              <rect height={50} width={25} />
+            </Shape>
+          </Shape>
         </Shape>
       </Canvas>
     )
   })
-
-// storiesOf('viz/Shape', module)
-//   .addDecorator(withKnobs)
-//   .add(
-//     'kitchen sink',
-//     () => {
-      // const opts = { range: true, min: 0, max: 100 }
-//       const x = number('x', 15, opts)
-//       const y = number('y', 45, opts)
-//       const ox = number('origin x', 25, {...opts, min: -50 })
-//       const oy = number('origin y', 25, {...opts, min: -50 })
-//       const rot = number('rotate', 75, {...opts, max: 360 })
-//       const scale = number('scale', 0.5, {...opts, max: 3, step: 0.01})
-//       const skx = number('skew x', 0, {...opts, min: -180, max: 90 })
-//       const sky = number('skew y', 0, {...opts, min: -180, max: 90 })
-//       const tfms = text('transforms', '')
-//       return (
-//         <Canvas>
-//           <Shape
-//             origin={[ox, oy]}
-//             x={x} y={y}
-//             rot={rot}
-//             scale={scale}
-//             skew={[skx, sky]}
-//             transforms={[tfms]}
-//             >
-//             <rect height={50} width={50} fill="#4a4a4a" />
-//             <rect x={5} height={25} width={25} fill="navajowhite" />
-//             <circle cx={ox} cy={oy} r={1/scale} fill="indianred" />
-//           </Shape>
-//         </Canvas>
-//       )
-//     })
