@@ -1,33 +1,29 @@
 import React, { Component } from 'react'
 import Proptypes from 'prop-types'
-import styled, { css } from 'react-emotion'
-import { withProps } from 'recompose'
-import Canvas from '@vzy/canvas'
-
-// const withTransformStyle = ({x = 0, y = 0, rot = 0, origin = 'center'}) => css`
-//   transform-origin: ${origin};
-//   transform: ${[
-//     `translate(${x}px, ${y}px)`,
-//     `rotate(${rot}deg)`,
-//   ].join(' ')}
-// `
-
 
 const Shape = (props) => {
-  let {x, y, rot = 0, origin = 0, ...otherprops} = props
+  let {
+    x, y, vbh = 100, vbw = 100,
+    rot = 0, origin = 0, skew = 0, ...otherprops
+  } = props
+
   let gProps = {
-    transform: [
-      `translate(${x}, ${y})`,
-      `rotate(${rot})`,
-    ].join(' '),
-    style: { transformOrigin: origin, ...props.style }
+    style: {
+      transformOrigin: origin,
+      transform: [
+        `translate3d(${x}px, ${y}px, 0)`,
+        `rotate3d(0, 0, 1, ${rot}deg)`,
+        `skew(${skew}deg)`,
+      ].join(' '),
+      ...props.style
+    }
   }
   let svgProps = {
     height: props.h,
     width: props.w,
     preserveAspectRatio: 'none',
     overflow: 'visible',
-    viewBox: `0 0 ${100} ${100}`,
+    viewBox: `0 0 ${vbw} ${vbh}`,
   }
   return (props.h && props.w) ?
     (<g {...gProps}><svg {...svgProps} {...otherprops} /></g>) :
@@ -39,7 +35,6 @@ export function withTransform () {
     return ({children, x, y, rot, origin, h = null, w = null, ...props}) => (
       <Shape x={x} y={y} rot={rot} origin={origin} h={h} w={w}>
         <WrappedComponent {...props} />
-        {/* <g>{children}</g> */}
       </Shape>
     )
   }

@@ -32,11 +32,12 @@ storiesOf('viz/Shape', module)
     const x = number('x', 15, opts)
     const y = number('y', 15, opts)
     const rot = number('rotation', 15, {...opts, max: 360})
+    const skew = number('skew', 0, {...opts, max: 360})
     const origin = text('origin', 'center')
 
     return (
     <Canvas>
-      <Shape fill={'cadetblue'} x={x} y={y} rot={rot} origin={origin}>
+      <Shape fill={'cadetblue'} x={x} y={y} rot={rot} origin={origin} skew={skew}>
         <rect height={25} width={25} />
       </Shape>
     </Canvas>
@@ -47,11 +48,12 @@ storiesOf('viz/Shape', module)
     const x = number('x', 15, opts)
     const y = number('y', 15, opts)
     const rot = number('rotation', 15, {...opts, max: 360})
+    const skew = number('skew', 0, {...opts, max: 360})
     const origin = text('origin', 'center')
 
     return (
     <Canvas>
-      <Shape x={x} y={y} rot={rot} origin={origin}>
+      <Shape x={x} y={y} rot={rot} origin={origin} skew={skew}>
         <rect height={25} width={25} fill={'cadetblue'} />
         <circle r={2} cx={0} cy={0} fill={'indianred'} />
       </Shape>
@@ -86,10 +88,12 @@ storiesOf('viz/Shape', module)
     const h = number('height', 25, opts)
     const w = number('width', 25, opts)
     const rot = number('rotation', 0, {...opts, max: 360})
+    const skew = number('skew', 0, {...opts, min: -90, max: 90})
     const origin = text('origin', 'center')
+
     return (
       <Canvas style={{border: '1px solid #4a4a4a', margin: '0 auto', height:'97vh'}}>
-        <Shape h={h} w={w} x={x} y={y} rot={rot} origin={origin}>
+        <Shape h={h} w={w} x={x} y={y} rot={rot} origin={origin} skew={skew}>
           <rect fill={'salmon'} height={100} width={100} />
           <circle fill={'thistle'} cx={50} cy={50} r={25} />
           {/* <Shape></Shape> */}
