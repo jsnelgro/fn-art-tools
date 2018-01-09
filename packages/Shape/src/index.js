@@ -4,7 +4,7 @@ import Proptypes from 'prop-types'
 const Shape = (props) => {
   let {
     x = 0, y = 0, vbh = 100, vbw = 100,
-    rot = 0, origin = 0, skew = 0, ...otherprops
+    rot = 0, origin = 'center', skew = 0, ...otherprops
   } = props
 
   let gProps = {

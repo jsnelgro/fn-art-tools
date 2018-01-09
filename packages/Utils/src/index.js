@@ -46,6 +46,11 @@ export function mod(n, m) {
   return ((n % m) + m) % m
 }
 
+// returns a tuple of the form (n // m, n % m)
+export function divmod(n, m) {
+  return [~~(n / m), mod(n, m)]
+}
+
 export function throttle (mod) {
   let count = 0
   return (fn) => {
