@@ -41,11 +41,21 @@ export const random = (a, b) => ((b === undefined) ? Math.random() * a : Math.ra
 //     mix, map, normalize, clamp, random,
 //     PI2, HALF_PI, DEG2RAD, RAD2DEG, EPS }
 
+// b/c js modulo is dumb with negative numbers
+export function mod(n, m) {
+  return ((n % m) + m) % m
+}
+
+// returns a tuple of the form (n // m, n % m)
+export function divmod(n, m) {
+  return [~~(n / m), mod(n, m)]
+}
+
 export function throttle (mod) {
   let count = 0
   return (fn) => {
     if (count === 0) { fn() }
-    count = (count + 1) % mod
+    count = mod(count + 1, mod)
   }
 }
 
@@ -94,7 +104,7 @@ export const multV = (v1, v2) => {
 export const wrap = (minW, maxW, minH, maxH, vec) => {
   if (Array.isArray(minH)) {
     // minW == maxW, maxW == maxH, minH == vec
-    return [(minH[0]+minW) % minW, (minH[1]+maxW) % maxW]
+    return [mod(minH[0] + minW, minW), mod(minH[1] + maxW, maxW)]
   }
   else {
     return [
@@ -106,6 +116,48 @@ export const wrap = (minW, maxW, minH, maxH, vec) => {
 
 export const range = (n) => {
   return [...Array(n).keys()]
+}
+
+// fixed ratio
+export const fixedRatio = (ratio, fn) => {
+  let i = 0
+  return (...args) => {
+    i += 1
+    if (i === ratio) {
+      i = 0
+      return fn(...args)
+    }
+  }
+}
+
+// variable ratio
+export const variableRatio = (chance, fn) => {
+  return (...args) => Math.random() <= chance ? fn(...args) : undefined
+}
+
+// fixed interval (in ms)
+export const fixedInterval = (interval, fn) => {
+  let completed = true
+  return (...args) => {
+    if (completed) {
+      completed = false
+      timer = setTimeout(_ => { completed = true }, interval)
+      return fn(...args) 
+    }
+  }
+}
+
+// variable interval and variance in ms
+export const variableInterval = (interval, variance, fn) => {
+  let completed = true
+  return (...args) => {
+    if (completed) {
+      completed = false
+      let newInterval = interval + random(-variance, variance)
+      let timer = setTimeout(_ => { completed = true }, newInterval)
+      return fn(...args)
+    }
+  }
 }
 
 export default { Vector }
