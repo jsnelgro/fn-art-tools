@@ -1,21 +1,29 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, boolean } from '@storybook/addon-knobs'
+import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 
-import withTime from '.'
+import timeHoc, { withTime } from '.'
 import Canvas from '@vzy/canvas'
 
 storiesOf('TimeProvider', module)
   .addDecorator(withKnobs)
   .add('props with pause toggle', () => {
     const paused = boolean('paused', true)
-    const TimeProvider = withTime((props) => {
+    const TimeProvider = timeHoc((props) => {
       return <div>{JSON.stringify(props)}</div>
     })
     return (<TimeProvider paused={paused} />)
   })
+  .add('with throttling', () => {
+    const paused = boolean('paused', true)
+    const delay = number('throttle interval', 300)
+    const TimeProvider = withTime(delay)((props) => {
+      return <div>{JSON.stringify(props)}</div>
+    })
+    return <TimeProvider paused={paused} />
+  })
   .add('time-based scene', () => {
-    const TimeProvider = withTime((props) => {
+    const TimeProvider = timeHoc((props) => {
       const { time } = props
       return (
         <Canvas>
