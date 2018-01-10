@@ -4,9 +4,10 @@ import Proptypes from 'prop-types'
 const Shape = (props) => {
   let {
     x = 0, y = 0, vbh = 100, vbw = 100,
-    rot = 0, origin = 'center', skew = 0, ...otherprops
+    rot = 0, origin = 'center', skew = 0,
+    hasOwnCoordinateSpace = false, ...otherprops
   } = props
-
+  hasOwnCoordinateSpace = hasOwnCoordinateSpace || (props.h && props.w)
   let gProps = {
     style: {
       transformOrigin: origin,
@@ -25,7 +26,7 @@ const Shape = (props) => {
     overflow: 'visible',
     viewBox: `0 0 ${vbw} ${vbh}`,
   }
-  return (props.h && props.w) ?
+  return (hasOwnCoordinateSpace) ?
     (<g {...gProps}><svg {...svgProps} {...otherprops} /></g>) :
     (<g {...gProps} {...otherprops} />)
 }

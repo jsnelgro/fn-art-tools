@@ -10,7 +10,8 @@ const Rect = (props) => {
   return (
     <Shape {...{ x, y, rot, origin, skew,
       h: hasOwnCoordinateSpace ? h : null,
-      w: hasOwnCoordinateSpace ? w : null
+      w: hasOwnCoordinateSpace ? w : null,
+      hasOwnCoordinateSpace
     }}>
       <rect
         height={hasOwnCoordinateSpace ? 100 : h}

@@ -1,9 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, number, text } from '@storybook/addon-knobs'
-// import readme from './README.md'
-// import { doc } from '/storybook-helpers'
-
 import Canvas from '@vzy/canvas'
 import Ellipse from '.'
 
