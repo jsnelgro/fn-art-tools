@@ -6,5 +6,5 @@ import vzy from '.'
 storiesOf('Playground', module)
   .addDecorator(withKnobs)
   .add('fun!', () => {
-    return <div>{'woo!'}</div>
+    return <div>{'TODO write some fun vizzies with the playground package'}</div>
   })
