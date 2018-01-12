@@ -12,16 +12,17 @@ import Canvas from '@vzy/canvas'
 import Shape from '@vzy/shape'
 import Rect from '@vzy/rect'
 import Ellipse from '@vzy/ellipse'
+import Triangle from '@vzy/triangle'
 import Path, { pathHelpers } from '@vzy/path'
 
 export {
   Utils, MouseProvider, ScrollProvider,
   WindowResizeProvider, TimeProvider,
-  Canvas, Shape, Rect, Ellipse, Path, pathHelpers
+  Canvas, Shape, Rect, Ellipse, Triangle, Path, pathHelpers
 }
 
 export default {
   Utils, MouseProvider, ScrollProvider,
   WindowResizeProvider, TimeProvider,
-  Canvas, Shape, Rect, Ellipse, Path, pathHelpers
+  Canvas, Shape, Rect, Ellipse, Triangle, Path, pathHelpers
 }

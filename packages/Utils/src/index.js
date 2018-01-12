@@ -39,10 +39,6 @@ export const random = (a, b) => ((b === undefined) ? Math.random() * a : Math.ra
 
 export const randomRange = (n) => range(n).map(Math.random)
 
-// export default {
-//     mix, map, normalize, clamp, random,
-//     PI2, HALF_PI, DEG2RAD, RAD2DEG, EPS }
-
 // b/c js modulo is dumb with negative numbers
 export function mod(n, m) {
   return ((n % m) + m) % m
