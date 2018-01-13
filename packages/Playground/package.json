@@ -23,6 +23,7 @@
     "@vzy/rect": "*",
     "@vzy/ellipse": "*",
     "@vzy/triangle": "*",
+    "@vzy/polygon": "*",
     "@vzy/path": "*",
     "@vzy/mouseprovider": "*",
     "@vzy/scrollprovider": "*",
