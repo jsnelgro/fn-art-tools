@@ -6,10 +6,12 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
-  "peerDependencies": {
-    "react": "^16.2.0",
+  "dependencies": {
     "@vzy/shape": "*",
     "@vzy/path": "*"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0"
   },
   "devDependencies": {
     "prop-types": "^15.6.0",
