@@ -1,0 +1,23 @@
+{
+  "name": "@vzy/polygon",
+  "version": "0.0.1",
+  "description": "My super awesome Polygon component!",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "author": "John Snelgrove <johnny.snelgrove@gmail.com> (http://jsnelgro.me)",
+  "dependencies": {
+    "@vzy/shape": "*",
+    "@vzy/path": "*"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0"
+  },
+  "devDependencies": {
+    "prop-types": "^15.6.0",
+    "raf": "^3.4.0",
+    "@vzy/playground": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

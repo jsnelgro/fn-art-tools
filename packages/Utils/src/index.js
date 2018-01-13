@@ -37,9 +37,7 @@ export const clamp = (n, a, b) => ((n < a) ? a : ((n > b) ? b : n))
 */
 export const random = (a, b) => ((b === undefined) ? Math.random() * a : Math.random() * (b - a) + a)
 
-// export default {
-//     mix, map, normalize, clamp, random,
-//     PI2, HALF_PI, DEG2RAD, RAD2DEG, EPS }
+export const randomRange = (n) => range(n).map(Math.random)
 
 // b/c js modulo is dumb with negative numbers
 export function mod(n, m) {
@@ -51,11 +49,11 @@ export function divmod(n, m) {
   return [~~(n / m), mod(n, m)]
 }
 
-export function throttle (mod) {
+export function throttle (every) {
   let count = 0
   return (fn) => {
     if (count === 0) { fn() }
-    count = mod(count + 1, mod)
+    count = mod(count + 1, every)
   }
 }
 
@@ -84,6 +82,8 @@ export const randHsla = (...args) => {
 }
 
 export const randHsl = randHsla
+export const randHSL = randHsla
+export const randHSLA = randHsla
 
 export const addV = (v1, v2) => {
   return [v1[0] + v2[0], v1[1] + v2[1]]
@@ -116,6 +116,11 @@ export const wrap = (minW, maxW, minH, maxH, vec) => {
 
 export const range = (n) => {
   return [...Array(n).keys()]
+}
+
+export const oscillate = (val, min, max, cycleLength = 2) => {
+  const range = (max - min) / 2
+  return ((Math.sin(val / cycleLength) * range) + range) + min
 }
 
 // fixed ratio
